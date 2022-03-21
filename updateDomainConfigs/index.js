@@ -17,7 +17,7 @@ module.exports = async function (context, req) {
       };
       console.log (querySpec.query)
       
-      // read all items in the Items container
+      // read all items in the Items container matching the domainName before issuing UPSERT
       const { resources: items } = await container.items
         .query(querySpec)
         .fetchAll();

@@ -8,14 +8,11 @@ const database = client.database(databaseName);
 const container = database.container(collectionName);
   
 
-  
-
 module.exports = async function (context, req) {
-    // console.log (JSON.stringify (req))
-     
+       
      console.log(`Querying container: Items`);
  
-     // query to return all items
+     // query to return all items matching itemName
      const querySpec = {
        query: "SELECT *  from masterRef c    WHERE c.itemName = " + "'" + req.query.itemName + "'"
      };

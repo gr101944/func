@@ -1,6 +1,6 @@
 const { CosmosClient } = require("@azure/cosmos");
-var endpoint = process.env["CosmosDBEndpoint"];
-var key = process.env["CosmosDBAuthKey"];
+const endpoint = process.env["CosmosDBEndpoint"];
+const key = process.env["CosmosDBAuthKey"];
 var databaseName = process.env["DatabaseName"];
 var collectionName = process.env["configCollectionName"];
 const client = new CosmosClient({ endpoint, key });
@@ -13,7 +13,7 @@ module.exports = async function (context, req) {
     
     console.log(`Querying container: Items`);
 
-    // query to return all items
+    // query to return all items matching domainName
     const querySpec = {
       query: "SELECT *  from botConfig c    WHERE c.domainName = " + "'" + req.query.domainName + "'"
     };
